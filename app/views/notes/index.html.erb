@@ -1,0 +1,21 @@
+<%= link_to 'Stvori novu bilješku', new_note_path %>
+<table>
+<thead>
+	<tr>
+		<td>ID</td>
+		<td>Naziv</td>
+		<td>Datum</td>
+		<td>Opcije</td>
+	</tr>
+</thead>
+<tbody>
+	<% @notes.each do |note| %>
+		<tr>
+			<td><%= note.id %></td>
+<td><%= note.title %></td>
+<td><%= note.date_at %></td>
+<td><%= link_to "Edit", edit_note_path(note) %> | <%= link_to 'Destroy', note_path(note), method: :delete, data: {confirm: 'Jeste sigurni?'} %></td>
+			</tr>
+	<% end %>
+</tbody>
+</table>
